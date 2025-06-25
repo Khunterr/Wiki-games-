@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiki Games com Firebase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Wiki Games - Portal</h1>
+    <p>Login com Firebase + Loja e Jogos</p>
+  </header>
+
+  <main>
+    <div id="loginBox">
+      <h2>Login</h2>
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="senha" placeholder="Senha">
+      <button onclick="login()">Entrar</button>
+      <p>Não tem conta? <a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
+    </div>
+
+    <div id="cadastroBox" style="display:none;">
+      <h2>Cadastro</h2>
+      <input type="email" id="cadEmail" placeholder="Email">
+      <input type="password" id="cadSenha" placeholder="Senha">
+      <button onclick="cadastrar()">Cadastrar</button>
+      <p>Já tem conta? <a href="#" onclick="mostrarLogin()">Voltar</a></p>
+    </div>
+
+    <div id="userPanel" style="display:none;">
+      <h3>Bem-vindo, <span id="username"></span>!</h3>
+      <p>Pontos: <span id="pontos">0</span></p>
+    </div>
+
+    <section id="jogos">
+      <div class="game-box">
+        <h2>Call of Duty: MW III</h2>
+        <button onclick="ganharPontos()">Baixar (ganhe 10 pontos)</button>
+        <a href="https://classic.minecraft.net" target="_blank" class="teste-link">Jogar Demo</a>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/fYtJWIxt3-M" title="Gameplay" allowfullscreen></iframe>
+        </div>
+        <div class="requisitos">
+          <strong>Requisitos:</strong><br>
+          CPU: i5, RAM: 16GB, GPU: GTX 1660
+        </div>
+        <div class="comentarios">
+          <textarea id="comentario" placeholder="Escreva um comentário..."></textarea>
+          <button onclick="comentar()">Enviar</button>
+          <ul id="comentarios-lista"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="loja">
+      <h2>Loja</h2>
+      <div class="loja-item">
+        <p>🎮 Avatar Gamer - 50 pontos</p>
+        <button onclick="comprarItem(50)">Comprar</button>
+      </div>
+      <div class="loja-item">
+        <p>⭐ Fundo Animado - 80 pontos</p>
+        <button onclick="comprarItem(80)">Comprar</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Wiki Games</p>
+  </footer>
+
+  <div class="cookies" id="cookieBanner">
+    Este site usa cookies para melhorar a experiência. 
+    <button onclick="document.getElementById('cookieBanner').style.display='none'">Aceitar</button>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
